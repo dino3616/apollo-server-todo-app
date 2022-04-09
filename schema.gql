@@ -1,0 +1,29 @@
+type Query {
+    allPost(start: Int = 0, range: Int = 20): [Post!]!
+    getPost(id: ID!): Post!
+    listPost(title: String!, start: Int = 0, range: Int = 20): [Post!]!
+}
+
+type Mutation {
+    createPost(newPost: NewPost!): Post!
+    updatePost(id: ID!, updatePost: UpdatePost!): Post!
+    deletePost(id: ID!): Post!
+}
+
+type Post {
+    id: ID!
+    title: String!
+    body: String!
+    createdAt: String!
+    updatedAt: String!
+}
+
+input NewPost {
+    title: String!
+    body: String!
+}
+
+input UpdatePost {
+    title: String
+    body: String
+}
